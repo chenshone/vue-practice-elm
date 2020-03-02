@@ -16,5 +16,5 @@
 </script>
 
 <style scoped>
-  @import './assets/style/normalize.css';
+  @import './assets/style/base.css';
 </style>

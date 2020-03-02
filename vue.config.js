@@ -16,7 +16,11 @@ module.exports = {
       },
       less: {
         modifyVars: {
-          'text-color': 'black'
+          'nav-bar-icon-color': '#fff',
+          'nav-bar-arrow-size': '18px',
+          'nav-bar-text-color': '#fff',
+          'nav-bar-title-text-color': '#fff',
+          'nav-bar-title-font-size':'23.5px'
         }
       }
     }

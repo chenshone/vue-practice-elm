@@ -1,15 +1,15 @@
 <template>
   <van-tabbar route>
-    <van-tabbar-item replace to="/home" icon="home-o">
+    <van-tabbar-item to="/home" icon="home-o">
       外卖
     </van-tabbar-item>
-    <van-tabbar-item replace to="/search" icon="search">
+    <van-tabbar-item to="/search" icon="search">
       搜索
     </van-tabbar-item>
-    <van-tabbar-item replace to="/order" icon="orders-o">
+    <van-tabbar-item to="/order" icon="orders-o">
       订单
     </van-tabbar-item>
-    <van-tabbar-item replace to="/me" icon="manager-o">
+    <van-tabbar-item to="/me" icon="manager-o">
       我的
     </van-tabbar-item>
   </van-tabbar>

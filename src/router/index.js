@@ -8,11 +8,14 @@ const Me = () => import('views/me/Me')
 const Order = () => import('views/order/Order')
 const Search = () => import('views/search/Search')
 const City = () => import('views/city/City')
+const Download = () => import('views/download/Download')
+const Service = () => import('views/service/Service')
+const VIPCard = () => import('views/vipcard/VIPCard')
 
 const routes = [
   {
     path: '',
-    redirect: '/city'
+    redirect: '/me'
   },
   {
     path: '/home',
@@ -33,6 +36,18 @@ const routes = [
   {
     path: '/city',
     component: City
+  },
+  {
+    path: '/download',
+    component: Download
+  },
+  {
+    path: '/service',
+    component: Service
+  },
+  {
+    path: '/vipcard',
+    component: VIPCard
   }
 ]
 

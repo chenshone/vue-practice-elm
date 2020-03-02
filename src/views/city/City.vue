@@ -81,6 +81,7 @@
     left: 0;
     right: 0;
     top: 46px;
-    bottom: 50px;
+    bottom: 0;
+    z-index: 999;
   }
 </style>
