@@ -1,6 +1,6 @@
 <template>
   <div id="base-info">
-    <div class="account">
+    <div class="account" @click="login">
       <div class="head-photo">
         <img src="~assets/img/elmlogo.jpeg" alt="" />
       </div>
@@ -60,6 +60,11 @@
         balance: '0.00',
         benefit: '0',
         points: '0'
+      }
+    },
+    methods: {
+      login() {
+        this.$router.push('/login')
       }
     }
   }

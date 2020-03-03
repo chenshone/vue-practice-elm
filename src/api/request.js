@@ -1,16 +1,18 @@
 import axios from 'axios'
 
-export function request(config) {
+export function request(config, method = 'GET') {
   return new Promise((resolve, reject) => {
     // 1. 创建axios的实例
     const instance = axios.create({
-      timeout: 5000
+      timeout: 5000,
+      method
     })
 
     // 2. axios的拦截器
     instance.interceptors.response.use(
       res => {
         return res.data
+        // return res
       },
       err => {
         if (error.message.includes('timeout')) {

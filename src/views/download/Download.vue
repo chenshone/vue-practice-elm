@@ -39,7 +39,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      // padding: 10px;
       padding-top: 50px;
       img {
         width: 200px;

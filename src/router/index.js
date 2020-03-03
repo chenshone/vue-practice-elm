@@ -11,6 +11,7 @@ const City = () => import('views/city/City')
 const Download = () => import('views/download/Download')
 const Service = () => import('views/service/Service')
 const VIPCard = () => import('views/vipcard/VIPCard')
+const Login = () => import('views/login/Login')
 
 const routes = [
   {
@@ -48,6 +49,10 @@ const routes = [
   {
     path: '/vipcard',
     component: VIPCard
+  },
+  {
+    path: '/login',
+    component: Login
   }
 ]
 

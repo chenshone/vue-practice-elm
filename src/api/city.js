@@ -1,10 +1,9 @@
 import { request } from './request'
 
-export function getCity(type) {
-  return request({
+export const getCity = type =>
+  request({
     url: '/v1/cities',
     params: {
       type
     }
   })
-}
