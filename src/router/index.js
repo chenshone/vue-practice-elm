@@ -12,6 +12,7 @@ const Download = () => import('views/download/Download')
 const Service = () => import('views/service/Service')
 const VIPCard = () => import('views/vipcard/VIPCard')
 const Login = () => import('views/login/Login')
+const MeInfo = () => import('views/me/info/MeInfo')
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: '/me',
     component: Me
+  },
+  {
+    path: '/me/info',
+    component: MeInfo
   },
   {
     path: '/order',

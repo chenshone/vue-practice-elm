@@ -63,6 +63,8 @@
 
 <script>
   import Vue from 'vue'
+  import { mapMutations } from 'vuex'
+
   import { Form, Field, Button, Switch, Toast } from 'vant'
 
   import MyNavBar from 'components/common/MyNavBar'
@@ -96,6 +98,7 @@
       this.getcaptchas()
     },
     methods: {
+      ...mapMutations(['RECORD_USERINFO']),
       onSubmit(values) {
         this.login(values)
       },
@@ -122,7 +125,8 @@
         if (result.status === 0) {
           Toast(result.message)
         } else {
-          Toast(result.username)
+          this.RECORD_USERINFO(result)
+          this.$router.replace('/me')
         }
       }
     },

@@ -1,14 +1,14 @@
 <template>
   <div id="base-info">
-    <div class="account" @click="login">
+    <div class="account" @click="loginOrInfo">
       <div class="head-photo">
         <img src="~assets/img/elmlogo.jpeg" alt="" />
       </div>
       <div class="info">
-        <div class="count">{{ count }}</div>
+        <div class="count">{{ myCount }}</div>
         <div>
           <img src="~assets/img/bindphone.png" alt="" />
-          <span class="number">{{ phoneNumber }}</span>
+          <span class="number">{{ myPhoneNumber }}</span>
         </div>
       </div>
       <i class="arrow"></i>
@@ -17,7 +17,7 @@
       <van-grid-item>
         <div class="balance">
           <div class="number">
-            <span>{{ balance }}</span>
+            <span>{{ myBalance }}</span>
             <span>元</span>
           </div>
           <div class="info">我的余额</div>
@@ -26,16 +26,16 @@
       <van-grid-item>
         <div class="benefit">
           <div class="number">
-            <span>{{ benefit }}</span>
+            <span>{{ myBenefit }}</span>
             <span>个</span>
           </div>
-          <div class="info">我的余额</div>
+          <div class="info">我的优惠</div>
         </div>
       </van-grid-item>
       <van-grid-item>
         <div class="points">
           <div class="number">
-            <span>{{ points }}</span>
+            <span>{{ myPoints }}</span>
             <span>分</span>
           </div>
           <div class="info">我的余额</div>
@@ -49,22 +49,50 @@
   import Vue from 'vue'
   import { Grid, GridItem } from 'vant'
 
+  import { getImgPath } from 'common/mixin'
+
   Vue.use(Grid)
   Vue.use(GridItem)
   export default {
     name: 'BaseInfo',
-    data() {
-      return {
-        count: '登录/注册',
-        phoneNumber: '暂无绑定手机号',
-        balance: '0.00',
-        benefit: '0',
-        points: '0'
+    mixins: [getImgPath],
+    methods: {
+      loginOrInfo() {
+        const route = this.$store.state.login ? '/me/info' : '/login'
+        console.log('aaa')
+        this.$router.push(route)
       }
     },
-    methods: {
-      login() {
-        this.$router.push('/login')
+    computed: {
+      myCount() {
+        return this.$store.state.login
+          ? this.$store.state.userInfo.username
+          : '登录/注册'
+      },
+      myPhoneNumber() {
+        return '暂无绑定手机号'
+      },
+      myBalance() {
+        return this.$store.state.login
+          ? this.$store.state.userInfo.balance.toFixed(2)
+          : '0.00'
+      },
+      myBenefit() {
+        return this.$store.state.login
+          ? this.$store.state.userInfo.point.toString()
+          : '0'
+      },
+      myPoints() {
+        return this.$store.state.login
+          ? this.$store.state.userInfo.point.toString()
+          : '0'
+      },
+      myPhoto() {
+        // const url = this.$store.state.login
+        //   ? this.$store.state.userInfo.avatar
+        //   : ''
+        // console.log(url)
+        // return this.getImgPath('http://elm.cangdu.org/img/default.jpg')
       }
     }
   }
