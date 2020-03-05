@@ -49,3 +49,11 @@ export const getImgPath = {
     }
   }
 }
+
+export const imgBaseURL = {
+  data() {
+    return {
+      imgBaseURL: '//elm.cangdu.org/img/'
+    }
+  }
+}

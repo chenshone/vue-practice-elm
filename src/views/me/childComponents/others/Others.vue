@@ -1,9 +1,9 @@
 <template>
   <van-cell-group id="others">
-    <van-cell title="服务中心" is-link to="service" icon="bars">
+    <van-cell title="服务中心" is-link to="/service" icon="bars">
       <van-icon class="my-icon" slot="icon" name="service" color="#3190e8" />
     </van-cell>
-    <van-cell title="下载饿了么APP" is-link to="download">
+    <van-cell title="下载饿了么APP" is-link to="/download">
       <div class="elm-logo" slot="icon"></div>
     </van-cell>
   </van-cell-group>

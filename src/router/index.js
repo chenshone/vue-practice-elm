@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 const Home = () => import('views/home/Home')
 const Me = () => import('views/me/Me')
+const MeContent = () => import('views/me/Content')
 const Order = () => import('views/order/Order')
 const Search = () => import('views/search/Search')
 const City = () => import('views/city/City')
@@ -17,7 +18,7 @@ const MeInfo = () => import('views/me/info/MeInfo')
 const routes = [
   {
     path: '',
-    redirect: '/me'
+    redirect: '/city'
   },
   {
     path: '/home',
@@ -25,11 +26,17 @@ const routes = [
   },
   {
     path: '/me',
-    component: Me
-  },
-  {
-    path: '/me/info',
-    component: MeInfo
+    component: MeContent,
+    children: [
+      {
+        path: '',
+        component: Me
+      },
+      {
+        path: 'info',
+        component: MeInfo
+      }
+    ]
   },
   {
     path: '/order',

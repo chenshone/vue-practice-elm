@@ -35,3 +35,6 @@ export const removeStore = name => {
   if (!name) return
   window.localStorage.removeItem(name)
 }
+
+// export const imgBaseURL = 'http://elm.cangdu.org/img/'
+export const imgBaseURL = '//elm.cangdu.org/img/'

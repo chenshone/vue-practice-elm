@@ -59,7 +59,6 @@
     methods: {
       loginOrInfo() {
         const route = this.$store.state.login ? '/me/info' : '/login'
-        console.log('aaa')
         this.$router.push(route)
       }
     },
