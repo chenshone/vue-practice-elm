@@ -15,3 +15,8 @@ export const accountLogin = (username, password, captcha_code) =>
 
 export const getUser = () =>
   request({ url: '/v1/user', user_id: getStore('user_id') })
+
+/**
+ * 退出登录
+ */
+export const signout = () => request({ url: '/v2/signout' })

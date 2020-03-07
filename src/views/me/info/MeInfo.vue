@@ -23,7 +23,9 @@
       <van-cell title="登录密码" is-link to="/" value="修改"> </van-cell>
     </van-cell-group>
 
-    <van-button type="danger" size="large" class="my-btn">退出</van-button>
+    <van-button type="danger" size="large" class="my-btn" @click="logout"
+      >退出</van-button
+    >
   </div>
 </template>
 
@@ -31,15 +33,19 @@
   import MyNavBar from 'components/common/MyNavBar'
 
   import { goBackMixin, imgBaseURL } from 'common/mixin'
+  import { signout } from 'api/login'
 
   import Vue from 'vue'
-  import { Cell, CellGroup, Icon, Button } from 'vant'
+  import { Cell, CellGroup, Icon, Button, Toast } from 'vant'
 
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
+
+  import { removeStore } from 'common/utils'
   Vue.use(Cell)
   Vue.use(CellGroup)
   Vue.use(Icon)
   Vue.use(Button)
+  Vue.use(Toast)
 
   export default {
     name: 'Info',
@@ -50,11 +56,23 @@
     computed: {
       ...mapGetters(['getUserInfo']),
       headPhotoURL() {
-        console.log(this.imgBaseURL)
         return this.imgBaseURL + this.getUserInfo.avatar
       },
       username() {
         return this.getUserInfo.username
+      }
+    },
+    methods: {
+      ...mapMutations(['OUT_LOGIN']),
+      logout() {
+        this.logoutAsync()
+      },
+      async logoutAsync() {
+        let result = await signout()
+        Toast.success(result.message)
+        this.OUT_LOGIN()
+        removeStore('user_id')
+        this.$router.go(-1)
       }
     }
   }
